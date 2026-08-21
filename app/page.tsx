@@ -1084,11 +1084,11 @@ export default function Page() {
 
         return (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-charcoal/95 backdrop-blur-2xl p-3 sm:p-6 md:p-10"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 backdrop-blur-2xl p-3 sm:p-6 md:p-10 transition-all duration-300"
             onClick={() => setSelectedImage(null)}
           >
             <div
-              className="relative flex flex-col md:flex-row w-full max-w-[1240px] max-h-[92vh] overflow-y-auto md:overflow-hidden rounded-[4px] border border-ivory/15 bg-[#171411] shadow-2xl"
+              className="relative flex flex-col md:flex-row w-full max-w-[1240px] max-h-[92vh] overflow-y-auto md:overflow-hidden rounded-[6px] border border-ivory/20 bg-[#171411] shadow-[0_25px_90px_-15px_rgba(0,0,0,0.95),0_0_60px_rgba(0,0,0,0.7)]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button Floating on Top Right */}
