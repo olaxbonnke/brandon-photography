@@ -503,13 +503,13 @@ export default function Page() {
       <section id="top" className="relative flex min-h-screen items-end bg-charcoal text-ivory">
         <video
           ref={videoRef}
+          src="/hero-video.mp4"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster="/work-wedding-1.jpg"
-          className="absolute inset-0 h-full w-full object-cover opacity-85 transition-opacity duration-700"
+          className="absolute inset-0 h-full w-full object-cover opacity-85"
           aria-hidden="true"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
