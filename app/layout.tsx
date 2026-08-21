@@ -8,8 +8,41 @@ const ebGaramond = EB_Garamond({ subsets: ['latin'], weight: ['400', '500', '600
 const jost = Jost({ subsets: ['latin'], variable: '--font-jost', display: 'swap' })
 
 export const metadata: Metadata = {
-  title: 'Brandon Photography — Nigeria · The Art of Remembering',
-  description: 'A fine-art, editorial photography studio for couples and brands in Lagos, Nigeria and worldwide. Weddings, portraits, and campaigns.',
+  metadataBase: new URL('https://brandon-photography.vercel.app'),
+  title: {
+    default: 'Brandon Photography — Nigeria · The Art of Remembering',
+    template: '%s | Brandon Photography',
+  },
+  description:
+    'A luxury fine-art, editorial photography studio for couples and brands in Lagos, Nigeria and worldwide. Weddings, portraits, and campaigns.',
+  applicationName: 'Brandon Photography',
+  authors: [{ name: 'Brandon' }],
+  creator: 'Brandon Photography',
+  publisher: 'Brandon Photography',
+  openGraph: {
+    type: 'website',
+    locale: 'en_NG',
+    url: 'https://brandon-photography.vercel.app',
+    siteName: 'Brandon Photography',
+    title: 'Brandon Photography — Nigeria · The Art of Remembering',
+    description:
+      'A luxury fine-art, editorial photography studio for couples and brands. Weddings, portraits and campaigns made across Nigeria and beyond.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Brandon Photography — BP Gold Monogram Emblem',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Brandon Photography — Nigeria · The Art of Remembering',
+    description:
+      'A luxury fine-art, editorial photography studio for couples and brands. Weddings, portraits and campaigns made across Nigeria and beyond.',
+    images: ['/og-image.png'],
+  },
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
