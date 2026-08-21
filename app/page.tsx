@@ -83,6 +83,7 @@ const workItems: WorkItem[] = [
     location: 'Ikoyi, Lagos',
     year: '2024',
     alt: 'Romantic couple portrait in soft light',
+    featuredInAll: true,
   },
   {
     id: 'w4',
@@ -458,7 +459,7 @@ export default function Page() {
 
         {/* Mobile Navigation Drawer (Faded Dark Mist Ambiance) */}
         {menuOpen && (
-          <nav className="border-t border-ivory/10 bg-gradient-to-b from-charcoal/95 via-[#181512]/95 to-charcoal/90 px-6 py-6 backdrop-blur-2xl shadow-2xl md:hidden" aria-label="Mobile navigation">
+          <nav className="border-t border-ivory/10 bg-gradient-to-b from-[#15120F]/75 via-[#15120F]/55 to-[#15120F]/35 backdrop-blur-xl px-6 py-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] md:hidden transition-all duration-300" aria-label="Mobile navigation">
             {nav.map((item, index) => (
               <a
                 key={item}
@@ -481,7 +482,7 @@ export default function Page() {
         )}
       </header>
 
-      {/* ── 1. Hero Section (Full Viewport Screen with CTA at Base Beside 'Explore the work') ── */}
+      {/* ── 1. Hero Section (Full Viewport Screen with Raised Content Position) ── */}
       <section id="top" className="relative flex min-h-screen items-end bg-charcoal text-ivory">
         <video
           ref={videoRef}
@@ -499,9 +500,9 @@ export default function Page() {
         <div className="absolute inset-0 bg-charcoal/20 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-charcoal/10" />
 
-        {/* Title Sequence Content */}
-        <div className="relative mx-auto w-full max-w-[1440px] px-6 pb-14 md:px-12 md:pb-20 lg:px-16">
-          <p className="hero-title-sequence mb-5 font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+        {/* Title Sequence Content (Lifted Upward for Comfortable Viewport Positioning) */}
+        <div className="relative mx-auto w-full max-w-[1440px] px-6 pt-32 pb-24 md:px-12 md:pb-28 lg:px-16">
+          <p className="hero-title-sequence mb-4 font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
             Brandon Photography — Nigeria
           </p>
 
@@ -511,15 +512,15 @@ export default function Page() {
           </h1>
 
           {/* Bottom Bar: Subtitle on Left, CTA + Explore Link on Right */}
-          <div className="hero-title-sequence-delayed mt-10 flex flex-col items-start justify-between gap-6 border-t border-ivory/15 pt-8 md:flex-row md:items-end">
+          <div className="hero-title-sequence-delayed mt-8 flex flex-col items-start justify-between gap-6 border-t border-ivory/15 pt-7 md:flex-row md:items-end">
             <p className="max-w-xl font-body text-sm md:text-base leading-relaxed text-ivory/85">
               A fine-art, editorial studio for couples and brands. Weddings, portraits and campaigns made across Nigeria and beyond.
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 shrink-0">
+            <div className="flex flex-wrap items-center gap-5 sm:gap-6 shrink-0">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 border border-gold bg-gold/90 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal font-medium transition-all duration-300 hover:bg-gold hover:text-charcoal"
+                className="inline-flex items-center gap-2 border border-gold bg-gold/90 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal font-medium transition-all duration-300 hover:bg-gold hover:text-charcoal shadow-sm"
               >
                 Book Session <ArrowUpRight size={14} />
               </a>
@@ -618,12 +619,12 @@ export default function Page() {
           </div>
 
           {/* 2-Column Editorial Grid */}
-          <div className="mt-14 grid gap-x-8 gap-y-16 md:grid-cols-2">
+          <div className="mt-14 grid gap-x-8 gap-y-12 md:grid-cols-2">
             {visibleWork.map((item, index) => (
               <article
                 key={item.id}
                 className={`reveal reveal-delay-${(index % 4) + 1} group cursor-pointer ${
-                  index % 3 === 1 ? 'md:mt-20' : ''
+                  index % 2 === 1 && (showAllInAllTab || filter !== 'All') && visibleWork.length > 2 ? 'md:mt-12' : ''
                 }`}
                 onClick={() => setSelectedImage(item)}
               >
