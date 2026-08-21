@@ -433,8 +433,8 @@ export default function Page() {
 
   return (
     <main className="overflow-hidden bg-charcoal text-ivory selection:bg-gold selection:text-charcoal font-body">
-      {/* ── Header / Navigation (Faded Dark Mist Bar with Logo Left & Nav Tabs Right) ── */}
-      <header className="absolute inset-x-0 top-0 z-30 border-b border-ivory/10 dark-mist-header text-ivory transition-all duration-300">
+      {/* ── Header / Navigation (Faded Dark Mist Bar - Step 2 in Sequence) ── */}
+      <header className="seq-header absolute inset-x-0 top-0 z-30 border-b border-ivory/10 dark-mist-header text-ivory transition-all duration-300">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 md:px-12 lg:px-16">
           {/* Logo with BP Gold on Black Emblem */}
           <a
@@ -501,6 +501,7 @@ export default function Page() {
 
       {/* ── 1. Hero Section (Full Viewport Screen with Raised Content Position) ── */}
       <section id="top" className="relative flex min-h-screen items-end bg-charcoal text-ivory">
+        {/* Step 1 in Sequence: Ambient Video fades in first */}
         <video
           ref={videoRef}
           src="/hero-video.mp4"
@@ -509,7 +510,7 @@ export default function Page() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 h-full w-full object-cover opacity-85"
+          className="seq-video absolute inset-0 h-full w-full object-cover"
           aria-hidden="true"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
@@ -519,19 +520,21 @@ export default function Page() {
         <div className="absolute inset-0 bg-charcoal/20 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-charcoal/10" />
 
-        {/* Title Sequence Content (Lifted Upward for Comfortable Viewport Positioning) */}
+        {/* Step 3 & 4 in Sequence: Title & Action Block */}
         <div className="relative mx-auto w-full max-w-[1440px] px-6 pt-32 pb-24 md:px-12 md:pb-28 lg:px-16">
-          <p className="hero-title-sequence mb-4 font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-            Brandon Photography — Nigeria
-          </p>
+          <div className="seq-headline">
+            <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              Brandon Photography — Nigeria
+            </p>
 
-          <h1 className="hero-title-sequence max-w-5xl font-serif text-[clamp(3.8rem,11vw,10.5rem)] leading-[0.82] tracking-[-0.05em]">
-            The art of<br />
-            <em className="font-serif italic text-gold">remembering.</em>
-          </h1>
+            <h1 className="max-w-5xl font-serif text-[clamp(3.8rem,11vw,10.5rem)] leading-[0.82] tracking-[-0.05em]">
+              The art of<br />
+              <em className="font-serif italic text-gold">remembering.</em>
+            </h1>
+          </div>
 
-          {/* Bottom Bar: Subtitle on Left, CTA + Explore Link on Right */}
-          <div className="hero-title-sequence-delayed mt-8 flex flex-col items-start justify-between gap-6 border-t border-ivory/15 pt-7 md:flex-row md:items-end">
+          {/* Step 4 in Sequence: Subtitle on Left, CTA + Explore Link on Right */}
+          <div className="seq-actions mt-8 flex flex-col items-start justify-between gap-6 border-t border-ivory/15 pt-7 md:flex-row md:items-end">
             <p className="max-w-xl font-body text-sm md:text-base leading-relaxed text-ivory/85">
               A fine-art, editorial studio for couples and brands. Weddings, portraits and campaigns made across Nigeria and beyond.
             </p>
