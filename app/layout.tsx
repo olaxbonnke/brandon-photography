@@ -60,6 +60,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${ebGaramond.variable} ${jost.variable}`}>
+      <head>
+        <link rel="preload" href="/hero-video.mp4" as="video" type="video/mp4" />
+      </head>
       <body className="antialiased">{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body>
     </html>
   )

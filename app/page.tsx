@@ -370,6 +370,23 @@ export default function Page() {
 
   const videoRef = useRef<HTMLVideoElement>(null)
 
+  // Ensure instant video autoplay on mount with zero buffer delay
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true
+      videoRef.current.defaultMuted = true
+      const playPromise = videoRef.current.play()
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          if (videoRef.current) {
+            videoRef.current.muted = true
+            videoRef.current.play().catch(() => {})
+          }
+        })
+      }
+    }
+  }, [])
+
   // Scroll reveal hook triggered on filter or expansion change
   useScrollReveal(filter + showAllInAllTab)
 
@@ -490,7 +507,9 @@ export default function Page() {
           muted
           loop
           playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-85"
+          preload="auto"
+          poster="/work-wedding-1.jpg"
+          className="absolute inset-0 h-full w-full object-cover opacity-85 transition-opacity duration-700"
           aria-hidden="true"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
