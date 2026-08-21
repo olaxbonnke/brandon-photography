@@ -417,7 +417,7 @@ export default function Page() {
   return (
     <main className="overflow-hidden bg-charcoal text-ivory selection:bg-gold selection:text-charcoal font-body">
       {/* ── Header / Navigation (Faded Dark Mist Bar with Logo Left & Nav Tabs Right) ── */}
-      <header className="absolute inset-x-0 top-0 z-30 border-b border-ivory/10 bg-gradient-to-b from-charcoal/90 via-charcoal/50 to-transparent backdrop-blur-md text-ivory transition-all duration-300">
+      <header className="absolute inset-x-0 top-0 z-30 border-b border-ivory/10 dark-mist-header text-ivory transition-all duration-300">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 md:px-12 lg:px-16">
           {/* Logo with BP Gold on Black Emblem */}
           <a
@@ -459,7 +459,7 @@ export default function Page() {
 
         {/* Mobile Navigation Drawer (Faded Dark Mist Ambiance) */}
         {menuOpen && (
-          <nav className="border-t border-ivory/10 bg-gradient-to-b from-[#15120F]/75 via-[#15120F]/55 to-[#15120F]/35 backdrop-blur-xl px-6 py-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] md:hidden transition-all duration-300" aria-label="Mobile navigation">
+          <nav className="dark-mist-drawer px-6 py-6 md:hidden transition-all duration-300" aria-label="Mobile navigation">
             {nav.map((item, index) => (
               <a
                 key={item}
